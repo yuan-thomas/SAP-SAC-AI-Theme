@@ -1,0 +1,102 @@
+{
+  "_comment": [
+    "A filled-in spec for a fictional customer, to show the shape. Never copy the",
+    "colours. Generate your own starting point with:",
+    "   inspect_theme.py theme.json --emit-spec spec.json",
+    "so the swatch ids and roles come from the export you were actually given.",
+    "",
+    "Keys the build reads: brand, font, activate, headerBar, swatches, palettes,",
+    "literalOverrides, checkAgainst. Anything starting with _ is ignored."
+  ],
+
+  "brand": "Northwind Materials",
+
+  "font": {
+    "family": "Inter",
+    "fallback": "",
+    "apply": true,
+    "_note": [
+      "apply:false leaves typography alone. Only set true once the font is",
+      "confirmed registered on the tenant, and check whether weights were",
+      "registered as one family or several - 'Inter' with a bold flag behaves",
+      "differently from a separate 'Inter SemiBold' family.",
+      "fallback appends a stack, e.g. 'Arial, Helvetica, sans-serif'. Worth",
+      "setting if the font might not resolve for every viewer."
+    ]
+  },
+
+  "checkAgainst": "#FFFFFF",
+
+  "activate": {
+    "BackgroundColor_30": {
+      "description": "Widget Header",
+      "color": "#1F6F5C",
+      "_note": "Activates a spare slot for a role the stock set lacks. Drop this block if the brand has no coloured title bars. See references/sac-theme-schema.md Trap 5."
+    }
+  },
+
+  "headerBar": {
+    "widgetId": "sap.fpa.story.theme.tile.header",
+    "swatch": "BackgroundColor_30",
+    "fontSwatch": "FontColor_7",
+    "fontSize": "14px",
+    "bold": true,
+    "_note": "Omit entirely unless the customer's reports put a coloured bar behind widget titles."
+  },
+
+  "literalOverrides": {
+    "_note": "Only for colours the build reports as ambiguous or off-palette. One source colour shared by swatches that now diverge cannot be remapped automatically.",
+    "#0064d9": "#1F6F5C",
+    "rgb(26, 39, 51)": "rgb(26, 32, 38)"
+  },
+
+  "palettes": {
+    "_note": "variance is [negative, positive]. single_color is the recently-used row in the colour picker - handy place for the core brand colours.",
+    "variance": ["#B03A2E", "#2E7D46"],
+    "single_color": ["#1F6F5C", "#1A2026", "#C77D2E", "#8AA6A0", "#EDEFEE", "#5B4A82"]
+  },
+
+  "swatches": {
+    "_note": "role is documentation, carried over from the export. color is what you edit.",
+
+    "FontColor_1":  { "role": "Main Font",       "color": "#1A2026" },
+    "FontColor_2":  { "role": "Selected",        "color": "#175A4A" },
+    "FontColor_3":  { "role": "Titles",          "color": "#0E1216" },
+    "FontColor_4":  { "role": "Subtitles",       "color": "#175A4A" },
+    "FontColor_5":  { "role": "Group Title",     "color": "#0E1216" },
+    "FontColor_6":  { "role": "Labels",          "color": "#5E6672" },
+    "FontColor_7":  { "role": "Contrasted",      "color": "#FFFFFF" },
+    "FontColor_8":  { "role": "Icon Default",    "color": "#175A4A" },
+    "FontColor_9":  { "role": "Icon Contrasted", "color": "#FFFFFF" },
+    "FontColor_10": { "role": "Button Default",  "color": "#175A4A" },
+    "FontColor_11": { "role": "Button Positive", "color": "#256B39" },
+    "FontColor_12": { "role": "Button Negative", "color": "#9C2F22" },
+    "FontColor_13": { "role": "Data Label",      "color": "#0E1216" },
+
+    "BackgroundColor_1":  { "role": "Main Pages",             "color": "#F6F7F7" },
+    "BackgroundColor_2":  { "role": "Containers",             "color": "#FFFFFF" },
+    "BackgroundColor_4":  { "role": "Selected Indicator",     "color": "#1F6F5C" },
+    "BackgroundColor_6":  { "role": "Transparent",            "color": "transparent" },
+    "BackgroundColor_8":  { "role": "List Hover",             "color": "#EDEFEE" },
+    "BackgroundColor_16": { "role": "Button Emphasized",      "color": "#175A4A" },
+
+    "BorderColor_5":  { "role": "Axis Line",   "color": "#98A0A8" },
+    "BorderColor_6":  { "role": "Grid Lines",  "color": "#E9ECEB" },
+    "BorderColor_22": { "role": "Widget",      "color": "#DCDFDE" },
+
+    "DatapointColor_1":  { "role": "Standard 1", "color": "#1F6F5C" },
+    "DatapointColor_2":  { "role": "Standard 2", "color": "#C77D2E" },
+    "DatapointColor_3":  { "role": "Standard 3", "color": "#2A5D8F" },
+    "DatapointColor_4":  { "role": "Standard 4", "color": "#8AA6A0" },
+    "DatapointColor_5":  { "role": "Standard 5", "color": "#5B4A82" },
+    "DatapointColor_6":  { "role": "Standard 6", "color": "#A8443A" },
+
+    "DatapointColor_13": { "role": "Neutral",             "color": "#7E8A86" },
+    "DatapointColor_15": { "role": "Positive",            "color": "#2E7D46" },
+    "DatapointColor_16": { "role": "Positive Background", "color": "#DCEEDF" },
+    "DatapointColor_17": { "role": "Negative",            "color": "#B03A2E" },
+    "DatapointColor_19": { "role": "Warning",             "color": "#9A6410" },
+
+    "_truncated": "A real spec lists every assigned swatch the export declares - typically around 106. The emitted starter file already has them all."
+  }
+}
