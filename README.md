@@ -131,7 +131,7 @@ The resulting JSON contains `storySettings`, `widgetSettings`, and
 
 ```js
 await SACThemeTools.exportJSON({
-  fileName: "Glencore-SAC-theme-full.json",
+  fileName: "SAC-theme-full.json",
 });
 ```
 
