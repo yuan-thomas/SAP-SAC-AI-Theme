@@ -152,5 +152,5 @@ Set expectations early on these, because customers ask:
 - **Logos and imagery.** Story assets, not theme settings.
 - **Custom fonts.** The family name only resolves if the font is registered on
   the tenant. Confirm before applying, and confirm whether weights were
-  registered as one family or several - "Montserrat" with a bold flag behaves
-  differently from a separate "Montserrat SemiBold" family.
+  registered as one family or several - "Inter" with a bold flag behaves
+  differently from a separate "Inter SemiBold" family.

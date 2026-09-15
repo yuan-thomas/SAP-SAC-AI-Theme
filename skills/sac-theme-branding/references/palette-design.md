@@ -56,9 +56,9 @@ at full strength where it reads as a block of colour, and a darkened version
 where it carries text.
 
 ```
-Brand teal  #00AFAA   2.7:1 on white   selected indicators, switches,
+Brand green #22A98B   2.9:1 on white   selected indicators, switches,
                                        sliders, chart fills, header bars
-Darkened    #00726F   5.8:1 on white   links, icons, button labels, subtitles
+Darkened    #1F6F5C   6.0:1 on white   links, icons, button labels, subtitles
 ```
 
 Derive the darker tone by dropping lightness at constant hue until it clears

@@ -3,7 +3,7 @@
 Render a one-page specimen sheet from a built theme.
 
   make_preview.py branded.json --out preview.html [--brand "Acme"]
-                  [--font Montserrat] [--source "where the palette came from"]
+                  [--font Inter] [--source "where the palette came from"]
 
 Every colour and the typeface are read out of the theme file, so the sheet
 cannot drift from what will actually be imported. Give this to the customer for

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__BRAND__ - SAC theme preview</title>
+__FONT_LINK__
+
+<!--
+  A stand-in for a SAC story page.
+
+  The markup uses SAC's real predefined class names (.sap-custom-*) under a
+  scope class, which is what the generated custom CSS targets. So the brand CSS
+  below is doing the same work here that it will do in the tenant, and what you
+  see is close to what SAC renders.
+
+  The first stylesheet is deliberately structural - boxes, spacing, type scale.
+  The only colours in it are the page and container backgrounds and the table
+  grid line, and those are injected from the theme JSON rather than invented,
+  because in a real story those come from the swatch table and not from CSS.
+  Everything else - type, borders, states, accents - comes from the theme CSS
+  below. If a widget looks unstyled, that is the honest answer: the CSS has no
+  rule for it.
+
+  Placeholders filled by scripts/preview_dashboard.py:
+    __BRAND__ __SCOPE__ __THEME_CSS__ __SWATCHES__ __FONT__ __META__
+    __CANVAS_BG__ __PAGE_BG__ __CONTAINER_BG__ __GRID__ __FONT_LINK__
+
+  The brand face has to be loaded for this page or the whole preview renders in
+  a fallback and tells you nothing about the typography. In the tenant that is
+  SAC's problem - the font is registered there - but a local HTML file has to
+  fetch it itself.
+-->
+
+<style>
+/* ---- structure only: no brand colours live here ---- */
+*{box-sizing:border-box}
+body{margin:0;background:__CANVAS_BG__;font:400 14px/1.45 __FONT__,"Segoe UI",system-ui,sans-serif}
+.frame{max-width:1180px;margin:0 auto;padding:22px 18px 70px}
+.frame > header{margin:0 0 14px}
+.frame > header h1{font-size:19px;font-weight:600;margin:0 0 3px}
+.frame > header p{font-size:12.5px;margin:0;opacity:.7}
+
+.sap-custom-page{padding:14px;min-height:200px;background:__PAGE_BG__}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.grid{display:grid;gap:10px;margin-bottom:12px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:1.05fr 1fr}
+@media(max-width:860px){.g4{grid-template-columns:repeat(2,1fr)}.g2{grid-template-columns:1fr}}
+
+/* widget shells - SAC gives each widget a -widget class.
+   Container fill comes from the JSON swatch, as it does in a story. */
+[class*="-widget"]{padding:12px 14px;min-width:0;background:__CONTAINER_BG__}
+.sap-custom-tab-strip-widget{background:transparent;padding:0}
+.sap-custom-chart-title,.sap-custom-table-title{display:block;font-size:15px;font-weight:600}
+.sap-custom-chart-subtitle,.sap-custom-table-subtitle{display:block;font-size:12px;margin-top:2px}
+
+/* tab strip */
+.sap-custom-tab-strip-tab-bar{display:flex;gap:2px;margin-bottom:10px}
+.sap-custom-tab-strip-tab,.sap-custom-tab-strip-selected-tab{
+  padding:8px 16px;font-size:13px;cursor:default}
+
+/* filter line + dropdown */
+.sap-custom-filter-line{display:inline-flex;flex-direction:column;padding:5px 11px;min-width:150px}
+.sap-custom-filter-line-main-label{font-size:11px}
+.sap-custom-filter-line-sub-label{font-size:12.5px;font-weight:600}
+.sap-custom-dropdown-trigger{display:inline-flex;align-items:center;gap:10px;
+  padding:7px 11px;min-width:168px;font-size:13px}
+.sap-custom-dropdown-trigger-value{flex:1}
+.sap-custom-dropdown-trigger-arrow{font-size:10px}
+
+/* buttons */
+.sap-custom-button{padding:8px 15px;font-size:13px;cursor:default;display:inline-block;
+  border:1px solid transparent}
+
+/* number (KPI) chart */
+.kpi{display:flex;flex-direction:column;gap:3px;padding:13px 14px}
+.sap-custom-number-chart-primary-labels{font-size:11.5px}
+.sap-custom-number-chart-primary-values{font-size:23px;font-weight:600;letter-spacing:-.02em}
+.sap-custom-number-chart-primary-variance-values{font-size:12px;font-weight:600}
+
+/* chart */
+.chartbox{margin-top:10px}
+.chartbox svg{display:block;width:100%;height:auto}
+.sap-custom-chart-legend{display:flex;gap:16px;font-size:11.5px;margin-top:8px;flex-wrap:wrap}
+.sap-custom-chart-legend span{display:inline-flex;align-items:center;gap:6px}
+.sap-custom-chart-legend i{width:11px;height:11px;display:inline-block;border-radius:2px}
+
+/* table */
+.sap-custom-table-widget table{border-collapse:collapse;width:100%;margin-top:10px}
+.sap-custom-table-widget th,.sap-custom-table-widget td{
+  padding:7px 9px;font-size:12.5px;text-align:left;
+  border-width:0 0 1px 0;border-style:solid;border-color:__GRID__}
+.sap-custom-table-widget td.num,.sap-custom-table-widget th.num{
+  text-align:right;font-variant-numeric:tabular-nums}
+
+/* swatch strip at the foot */
+.legendbar{margin-top:26px;padding-top:16px;border-top:1px solid __GRID__}
+.legendbar h2{font-size:13px;margin:0 0 9px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chips figure{margin:0;width:104px}
+.chips i{display:block;height:30px;border:1px solid rgba(0,0,0,.14)}
+.chips figcaption{font:400 9.5px/1.3 ui-monospace,Menlo,Consolas,monospace;
+  margin-top:3px;opacity:.72;word-break:break-all}
+.note{font-size:11.5px;opacity:.65;margin:10px 0 0;max-width:70ch}
+</style>
+
+<!-- ============ generated theme CSS ============ -->
+<style id="theme-css">
+__THEME_CSS__
+</style>
+
+<div class="frame">
+  <header>
+    <h1>__BRAND__ &mdash; SAC theme preview</h1>
+    <p>__META__</p>
+  </header>
+
+  <div class="sap-custom-page __SCOPE__">
+
+    <div class="sap-custom-tab-strip-widget">
+      <div class="sap-custom-tab-strip-tab-bar">
+        <div class="sap-custom-tab-strip-selected-tab-container">
+          <span class="sap-custom-tab-strip-selected-tab">Overview</span></div>
+        <div class="sap-custom-tab-strip-tab-container">
+          <span class="sap-custom-tab-strip-tab">Detail</span></div>
+        <div class="sap-custom-tab-strip-tab-container">
+          <span class="sap-custom-tab-strip-tab">Trend</span></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="sap-custom-filter-line">
+        <span class="sap-custom-filter-line-main-label">Period</span>
+        <span class="sap-custom-filter-line-sub-label">FY&nbsp;current</span>
+      </div>
+      <div class="sap-custom-filter-line">
+        <span class="sap-custom-filter-line-main-label">Entity</span>
+        <span class="sap-custom-filter-line-sub-label">All</span>
+      </div>
+      <div class="sap-custom-dropdown-trigger">
+        <span class="sap-custom-dropdown-trigger-value">All categories</span>
+        <span class="sap-custom-dropdown-trigger-arrow">&#9660;</span>
+      </div>
+      <span style="flex:1"></span>
+      <span class="sap-custom-button">Export</span>
+      <span class="button--emphasized"><span class="sap-custom-button">Apply</span></span>
+    </div>
+
+    <div class="grid g4">__KPIS__</div>
+
+    <div class="grid g2">
+      <div class="sap-custom-chart-widget">
+        <span class="sap-custom-chart-title">Actuals and commitments by period</span>
+        <span class="sap-custom-chart-subtitle">Two-series pairing, palette positions 1 and 2</span>
+        <div class="chartbox">__CHART__</div>
+        <div class="sap-custom-chart-legend">__LEGEND__</div>
+      </div>
+
+      <div class="sap-custom-table-widget">
+        <span class="sap-custom-table-title">Breakdown by workstream</span>
+        <span class="sap-custom-table-subtitle">Reporting currency</span>
+        <table class="sap-custom-table-grid-line">
+          <thead><tr class="sap-custom-table-column-row-headers">
+            <th class="sap-custom-table-dimension-header-cell">Workstream</th>
+            <th class="sap-custom-table-dimension-header-cell num">Actuals</th>
+            <th class="sap-custom-table-dimension-header-cell num">Committed</th>
+            <th class="sap-custom-table-dimension-header-cell num">Variance</th>
+          </tr></thead>
+          <tbody>__ROWS__</tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="legendbar">
+    <h2>Theme swatches</h2>
+    <div class="chips">__SWATCHES__</div>
+    <p class="note">Series colours and swatches come from the theme JSON; chrome,
+    borders and type come from the custom CSS. A widget that looks unstyled has
+    no rule in the CSS - that is a real gap, not a rendering artefact here.</p>
+  </div>
+</div>
+</html>

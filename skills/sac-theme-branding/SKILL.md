@@ -1,14 +1,20 @@
 ---
 name: sac-theme-branding
-description: Rebrand an exported SAP Analytics Cloud theme to a customer's visual identity - extract colours and fonts from brand assets (PPTX, brand guide, report screenshots), design an accessible dashboard palette, and rewrite the theme JSON's swatches, palettes, cached colour literals and font families without breaking its schema. Use this whenever someone mentions SAC theming, SAP Analytics Cloud branding, a SAC theme JSON or "sac-theme-preferences" export, applying corporate colours or a corporate font to SAC stories, replacing the SAP stock/default theme, or building a reusable company theme for SAC - and also when they hand over a theme export alongside a deck, style guide or dashboard screenshots and ask to make one look like the other, even if they never say the word "theme".
+description: Rebrand SAP Analytics Cloud to a customer's visual identity end to end - extract colours and fonts from brand assets (PPTX, brand guide, report screenshots), design an accessible dashboard palette, rewrite the theme JSON's swatches, palettes, cached colour literals and font families without breaking its schema, and generate matching SAC Story Custom CSS validated against SAP's supported-selector reference. Use this whenever someone mentions SAC theming, SAP Analytics Cloud branding, a SAC theme JSON or "sac-theme-preferences" export, SAC Custom CSS or sap-custom selectors, applying corporate colours or a corporate font to SAC stories, replacing the SAP stock/default theme, or building a reusable company theme for SAC - and also when they hand over a theme export alongside a deck, style guide or dashboard screenshots and ask to make one look like the other, even if they never say the word "theme".
 ---
 
 # Branding a SAP Analytics Cloud theme
 
 The customer exports their SAC story theme to JSON (usually via a browser-console
 script), you rebrand it, they import it back. Your job is the middle step: turn
-brand assets into a palette, and get that palette into the file without breaking
-anything.
+brand assets into a palette, and get that palette into everything that carries
+colour without breaking anything.
+
+Branding SAC is three layers, not one. The colour dialog sets swatches. The
+theme JSON carries those swatches plus palettes, widget settings and fonts. And
+**Story Custom CSS sits on top of both and wins.** A story with stock CSS keeps
+showing stock colours however well the JSON is branded, which is the usual
+answer to "I applied the theme and half the widgets are still blue".
 
 Two things make this harder than a find-and-replace. The export is a real
 artefact with real inconsistencies - self-contradicting palettes, colour caches
@@ -26,6 +32,10 @@ drifted from the source.
 a comparable one - before you design anything. Also ask what the theme is for
 (a single story, or a reusable company theme new reports will apply), and
 whether any custom font is already registered on the tenant.
+
+Also ask **whether the story already uses Custom CSS**, and get the current file
+if so. Anything in it overrides the theme, so it is both a constraint and a
+source of truth about what they expect.
 
 This matters more than it sounds. A brand guide tells you which colours exist.
 A screenshot tells you which one is the primary series, which is the secondary,
@@ -119,11 +129,59 @@ a file whose schema drifted. Read the report:
 Fix anything surprising in the spec and rebuild. Do not hand-edit the output;
 the next rebuild would silently discard it.
 
-### 5. Preview
+### 5. Generate the custom CSS
+
+```bash
+python scripts/build_css.py out/Acme-theme-branded-full.json \
+  --source-theme theme.json --font Inter \
+  --font-fallback "Arial, Helvetica, sans-serif" \
+  --brand Acme --extend \
+  --emit-map out/css-map.json --out out/acme-theme.css
+```
+
+This rewrites SAP's bundled sample CSS with the branded colours rather than
+inventing a selector mapping, because the sample's colour literals are already
+exact swatch values - SAP did the mapping. Each substitution is decided from the
+declaration's property, so `color:` looks at font swatches and `fill:` at
+datapoint swatches.
+
+The sample styles 23 of the 38 object types. `--extend` generates conservative
+rules for the rest from the reference; review that section, since it infers each
+role from the selector's name.
+
+Read the `--emit-map` file. Every value in it is a *suggestion*, not a decision:
+colours where several branded swatches shared one stock colour, and CSS-only
+tones (pale hover fills, semantic pastels) given the brand's nearest hue at the
+same lightness. Edit it, then pass it back with `--overrides` and rebuild.
+
+Check any existing CSS, and anything you hand-edit:
+
+```bash
+python scripts/validate_css.py out/acme-theme.css --colours
+```
+
+SAC ignores unsupported selectors and properties silently, so a rule that reads
+fine can do nothing. This also reports which object types the file leaves
+unstyled.
+
+The scope class comes from `--brand` (Acme becomes `.acmetheme`), or pass
+`--scope` to set it directly. Give one or the other: with neither, the output
+keeps the template's own scope class and the customer's designers end up
+assigning SAP's sample class name to their widgets. The build warns when that
+happens. Whatever you choose, `preview_dashboard.py` must be told the same one.
+
+Pass `--font-fallback` unless there is a reason not to. SAP's sample names a
+single face in most rules, and a face that fails to load drops to the browser
+default, which is usually a serif - conspicuous in a dashboard.
+
+`references/sac-custom-css.md` covers the layer properly - read it before
+hand-writing any rule.
+
+### 6. Preview
 
 ```bash
 python scripts/make_preview.py out/Acme-theme-branded.json \
-  --out out/Acme-theme-preview.html --brand Acme --font Montserrat
+  --out out/Acme-theme-preview.html --brand Acme --font Inter
 ```
 
 A single-page specimen: a mock canvas, the palettes, and every swatch with its
@@ -131,8 +189,27 @@ role and contrast. If you have their screenshots, edit the mock canvas to mirror
 that layout - a specimen that looks like their own dashboard gets signed off,
 a grid of colour chips gets questions.
 
-Render it and look at it before sending. Check for text overflow, uneven column
-heights, and low-contrast pairings the numbers did not catch.
+Then render the sample dashboard, which is the one that shows the CSS working:
+
+```bash
+python scripts/preview_dashboard.py out/Acme-theme-branded-full.json \
+  --css out/acme-theme.css --brand Acme --font Inter \
+  --out out/acme-dashboard.html
+```
+
+The markup carries SAC's real predefined class names under the scope class, so
+the generated CSS styles it the same way it will style the tenant. Series
+colours and container fills are read from the theme JSON, chrome and type from
+the CSS - if a widget looks unstyled, the CSS genuinely has no rule for it.
+
+The page fetches the brand face itself, since a local HTML file has no tenant to
+get it from. `--font-url auto` builds a Google Fonts URL from `--font`; pass a
+real URL for a licensed corporate face, or `none` to skip. Without it the whole
+preview renders in a fallback and tells you nothing about the typography, so
+check the console if the type looks wrong before you blame the CSS.
+
+Render both and look at them before sending. Check for text overflow, uneven
+column heights, and low-contrast pairings the numbers did not catch.
 
 ## Delivering
 
@@ -141,6 +218,10 @@ is usually that everything outside `theme.colors` and `theme.palettes` resolves
 through swatch references - which is *mostly* true, and whether the cached
 literals win depends on their import script and SAC version. So: scoped file
 first, full file as the fix if widgets still render in stock colours.
+
+Ship the CSS alongside the JSON, and be explicit that **it must be kept in step
+with the theme**. Because CSS outranks the JSON, a swatch change without a CSS
+rebuild leaves the story showing two different brand colours.
 
 Tell them, briefly:
 
@@ -153,6 +234,12 @@ Tell them, briefly:
   thing to verify on import, with the fallback if their tenant rejects it.
 - What the theme cannot reach - table header fills, text case, logos. Set that
   expectation early; they will ask.
+- Which **scope class** their designers must assign in each widget's styling
+  panel. A perfect CSS file does nothing if nobody assigns the class.
+- That CSS is per story, not per tenant, so a "company theme" in CSS means every
+  story owner applying the same file. Ask how they plan to distribute it.
+- That CSS colours can override chart **threshold and conditional formatting**
+  colours. Any story relying on those needs a look.
 
 ## Things worth being honest about
 
@@ -171,7 +258,16 @@ not.
   Read before hand-editing anything or when a build reports something odd.
 - `references/palette-design.md` - how to adapt brand colours for dashboards.
   Read at step 3, every time.
+- `references/sac-custom-css.md` - how the CSS layer works, what it can set,
+  and the caveats to pass on. Read at step 5.
 - `assets/spec.example.json` - a filled-in spec.
-- `scripts/` - audit, extract, build, preview.
+- `assets/sac-css-reference.json` - SAP's supported selectors and properties:
+  38 object types, 246 selectors, 31 properties. Query it with a script; at
+  ~320 KB it does not belong in context.
+- `assets/sap-sample-theme.css` - SAP's own sample theme, used as the rewrite
+  template. An example, not a complete implementation.
+- `assets/dashboard-preview.html` - the sample dashboard, in SAC-accurate markup.
+- `scripts/` - `inspect_theme`, `extract_brand`, `build_theme`, `build_css`,
+  `validate_css`, `make_preview`, `preview_dashboard`.
 
 Dependencies: Python 3, `Pillow` for image sampling. No network needed.

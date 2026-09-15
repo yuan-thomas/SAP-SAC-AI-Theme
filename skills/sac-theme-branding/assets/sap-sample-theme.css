@@ -1,0 +1,2018 @@
+/* Description:
+    - This CSS file is used to define the look and feel of the SAP Morning Horizon (light) sample theme in SAP Analytics Cloud.
+    - SAC Theme Name: SAP_SAMPLE_CONTENT_Theme
+
+/*------------------------------------------------------------------ */
+/* ACCOUNT INPUT CONTROL-------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+.saptheme .sap-custom-account-input-control-widget{ 
+	background-color: #FFFFFF; 
+}
+.saptheme .sap-custom-account-input-control-main-label{ 
+	color: #131e29;
+	}
+.saptheme .sap-custom-account-input-control-sub-label{ 
+    color:#0070f2;
+    font-weight:bold;
+}
+.saptheme .sap-custom-account-input-control-icon{ 
+    color:#131e29; 
+}
+.saptheme .sap-custom-account-input-control-arrow{ 
+    color:#0064d9;  
+}
+.saptheme .sap-custom-account-input-control-content{ 
+    color:#131e29;  
+}
+
+/*------------------------------------------------------------------ */
+/* BPC PLANNING SEQUENCE TRIGGER------------------------------------ */
+/*------------------------------------------------------------------ */
+
+/*------------------------------------------------------------------ */
+/* BUTTON----------------------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+/**Standard Button - using global CSS class**/
+.saptheme .sap-custom-button{
+	color: #0064d9;
+	background-color: #FFFFFF;
+	border-color: #BCC3CA;
+	border-radius: 8px;
+}
+.saptheme .sap-custom-button:hover{
+    color: #0064d9;
+	background-color: #eaecee;
+	border-color: #BCC3CA;	
+}
+.saptheme .sap-custom-button:active{
+    color: #0064d9;
+	background-color: #ffffff;
+	border-color: #0064D9;	
+}
+
+/**Emphasized Button - .button--emphasized class**/
+.button--emphasized .sap-custom-button{
+    color:#FFFFFF;
+    background-color:#0070F2;
+    border-color: #0070F2;
+	border-radius: 8px; 
+}
+.button--emphasized .sap-custom-button:hover{
+    color:#FFFFFF;
+    background-color:#0064d9;
+    border-color:#0064d9;
+}
+.button--emphasized .sap-custom-button:active{
+    color:#0064d9;
+    background-color:#ffffff;
+    border-color:#0064d9;
+}
+
+/*Lite Button - .button--lite class*/
+.button--lite .sap-custom-button{
+    color:#0064D9;
+    background-color:transparent;
+    border-color:transparent;
+	border-radius:8px;
+}
+.button--lite .sap-custom-button:hover{
+    color:#0064D9;
+    background-color:#EAECEE;
+    border-color:#BCC3CA;
+}
+.button--lite .sap-custom-button:active{
+    color:#0064D9;
+    background-color:#ffffff;
+    border-color:#0064D9;
+}
+
+/*Shell Button / */
+.button--shell .sap-custom-button{
+    color:#1D2D3E;
+    background-color:transparent;
+    border-color:transparent;
+	border-radius: 8px;
+}
+.button--shell .sap-custom-button:hover{
+    color:#1D2D3E;
+    background-color:#FFFFFF;
+    border-color:#131e29;
+}
+.button--shell .sap-custom-button:active{
+    color:#0070f2;
+    background-color:#FFFFFF;
+    border-color:#0064D9;
+}
+
+/**Accept Button/ Confirm / Positiv - .button--accept class**/
+.button--accept .sap-custom-button{
+    color:#256F3A;
+    background-color:#EBF5CB;
+    border-color: #DBEDA1;
+	border-radius:8px;
+}
+.button--accept .sap-custom-button:hover{
+    color:#256F3A;
+    background-color:#e3f1b6;
+    border-color:#e3f1b6;
+}
+.button--accept .sap-custom-button:active{
+    color:#256F3A;
+    background-color:#ffffff;
+    border-color:#30914C;
+}
+
+/* Reject Button */
+.button--reject .sap-custom-button{
+    color:#AA0808;
+    background-color:#FFD6E9;
+    border-color:#ffc1df;
+	border-radius:8px;
+}
+.button--reject .sap-custom-button:hover{
+    color:#AA0808;
+    background-color:#ffbcdc;
+    border-color:#ffc1df;
+}
+.button--reject .sap-custom-button:active{
+    color:#AA0808;
+    background-color:#ffffff;
+    border-color: #E90B0B;
+}
+
+/* Attention Button */
+.button--attention .sap-custom-button{
+    color:#b44f00;
+    background-color:#FFF3B7;
+    border-color:#FFEA84;
+	border-radius:8px;
+}
+.button--attention .sap-custom-button:hover{
+    color:#b44f00;
+    background-color:#FFEF9E;
+    border-color:#FFEF9E;
+}
+.button--attention .sap-custom-button:active{
+    color:#b44f00;
+    background-color:#ffffff;
+    border-color: #DD6100;
+}
+
+/*Invisible button with Hover effect for Card on e.g. Landing Page*/
+.button_card-pseudo-button .sap-custom-button-widget{
+	background-color: transparent;
+}
+.button_card-pseudo-button .sap-custom-button{
+	border-radius: 16px;
+	background-color: transparent;
+}
+.button_card-pseudo-button .sap-custom-button:hover{
+	border-radius: 16px;
+	background-color: #7b96b210;
+}
+.button_card-pseudo-button .sap-custom-button:active{
+	border-radius: 16px;
+	background-color: transparent;
+}
+
+/* Panel for Dropdown as action button*/
+.button__border--drop-down .sap-custom-panel-widget{
+	border: thin solid #0064d9;
+	background-color: #FFFFFF;
+}
+
+
+/* Dropdown as action button */
+.button--drop-down .sap-custom-dropdown-trigger{
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #BCC3CA;
+    border-right: 1px solid #BCC3CA;
+    border-left: 1px solid #BCC3CA;
+    border-bottom: 1px solid #BCC3CA;
+} 
+.button--drop-down .sap-custom-dropdown-trigger:hover{  
+    border-radius: 8px;
+    background-color: #EAECEF;
+    border-top: 1px solid #BCC3CA;
+    border-right: 1px solid #BCC3CA;
+    border-left: 1px solid #BCC3CA;
+    border-bottom: 1px solid #BCC3CA;
+} 
+.button--drop-down .sap-custom-dropdown-trigger:active{
+    border-radius: 8px;
+    background-color: #FFF;
+    border-top: 1px solid #0064D9;
+    border-right: 1px solid #0064D9;
+    border-left: 1px solid #0064D9;
+    border-bottom: 1px solid #0064D9;	
+} 
+.button--drop-down .sap-custom-dropdown-trigger-value{
+    font-family: '72-Web';
+    font-size: 14px;
+    color: #0064D9;
+    background-color:transparent; 
+}
+.button--drop-down .sap-custom-dropdown-trigger-arrow{
+    font-size: 16px;
+    background-color: #FFFFFF;
+    color: #0064D9; 
+    border-radius: 4px;
+    padding: 0px 10px 0px 10px;
+}
+.button--drop-down .sap-custom-dropdown-trigger-arrow-expanded{
+    background-color: #E5E5E5;
+}
+.button--drop-down .sap-custom-dropdown-trigger-arrow:hover{
+    color: #1D2D3E;
+    background-color: #EAECEF;
+    border-radius: 4px;
+    padding: 0px 10px 0px 10px;
+}
+.button--drop-down .sap-custom-dropdown-trigger-arrow:active{
+    background-color: transparent; 
+    color: #1D2D3E; 
+    border-radius: 4px;
+    padding: 0px 10px 0px 10px;
+}
+.button--drop-down .sap-custom-dropdown-item{
+    color: #1D2D3E;
+    font-weight: 400;
+	
+} 
+.button--drop-down .sap-custom-dropdown-item:hover{ 
+    color: #1D2D3E;
+    font-weight: 400;
+	background-color: #EAECEE;
+} 
+.button--drop-down .sap-custom-dropdown-item:active{
+    color: #0064d9;
+    font-weight: 400;
+}
+.button--drop-down .sap-custom-dropdown-selected-item{
+    color: #1D2D3E;
+    font-weight: 400;
+    background-color: #edf5ff; 
+}
+.button--drop-down .sap-custom-dropdown-menu{
+	border-radius: 8px;
+	border: 1px solid #7A8691; 
+}
+
+
+/* Dimension Input Control as Button */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 6px*/
+
+.button--dimension-input-control .sap-custom-input-control-widget{
+    border:thin solid #0064D9;
+    background-color:transparent;
+}
+.button--dimension-input-control .sap-custom-input-control-sub-label{
+    color: #0064D9;
+    font-size: 14px;
+}
+.button--dimension-input-control .sap-custom-input-control-arrow{
+    color: #0064D9;
+}
+
+
+/* Account Input Control as Button */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 6px*/
+
+.button--account-input-control .sap-custom-account-input-control-widget{
+    border:thin solid #0064D9;
+    background-color:transparent;
+}
+.button--account-input-control .sap-custom-account-input-control-sub-label{
+    color: #0064D9;
+    font-size: 14px;
+}
+.button--account-input-control .sap-custom-account-input-control-arrow{
+    color: #0064D9;
+}
+
+/*------------------------------------------------------------------ */
+/* CALCULATION INPUT CONTROL --------------------------------------- */
+/*------------------------------------------------------------------ */
+
+/*------------------------------------------------------------------ */
+/* CHART  ---------------------------------------------------------- */
+/*------------------------------------------------------------------ */
+/* 
+- no data label color defined so the data label color is dynamic 
+  depending on the background if inside a bar
+- Variance label need to be manually set because it's not available in CSS'
+*/
+/*--Continious Color Palette applied in the Theme based on Fiori Morning Colors-----*/
+
+.saptheme .sap-custom-chart-title,
+.chart_datalabels--contrast .sap-custom-chart-title,
+.kpi_fixed-font-size .sap-custom-chart-title{ 
+    font-family: '72-Web';
+    font-size: 14px;
+    color: #131e29;
+    font-weight: 700;
+}
+.saptheme .sap-custom-chart-subtitle,
+.chart_datalabels--contrast .sap-custom-chart-subtitle,
+.kpi_fixed-font-size .sap-custom-chart-subtitle{ 
+    font-family: '72-Web';
+    font-size: 12px;
+    color: #556B82;
+    font-weight: 400;
+}
+.saptheme .sap-custom-chart-value-axis-title{
+	font-family: '72-Web';
+	font-size: 14px;
+	fill: #131e29;
+	font-weight: 300;
+}
+.saptheme .sap-custom-chart-category-axis-title{
+	font-family: '72-Web';
+	font-size: 14px;
+	fill: #131e29;
+	font-weight: 300;
+}
+.saptheme .sap-custom-chart-category-axis-label,
+.chart_datalabels--contrast .sap-custom-chart-category-axis-label{ 
+    font-family: '72-Web';
+    font-size: 12px;
+    fill: #131e29;
+    font-weight: 400;
+}
+.saptheme .sap-custom-chart-category-axis-sublabel{
+    font-family: '72-Web';
+    font-size: 12px;
+    fill: #131e29;
+    font-weight: 300;
+}
+.saptheme .sap-custom-chart-value-axis-label,
+.chart_datalabels--contrast .sap-custom-chart-value-axis-label{
+	fill: #131e29;
+}
+.saptheme .sap-custom-chart-color-axis-label{
+    font-family: '72-Web';
+    font-size: 12px;
+	fill: #131e29;
+}
+.saptheme .sap-custom-chart-value-axis-title-2{
+	font-family: '72-Web';
+	font-size: 14px;
+	fill: #131e29;
+	font-weight: 300;
+}
+.saptheme .sap-custom-chart-legend,
+.chart_datalabels--contrast .sap-custom-chart-legend{
+    font-family: '72-Web';
+    font-size: 12px;
+	fill: #131e29;
+}
+.saptheme .sap-custom-chart-data-labels {
+	font-size: 12px;
+	font-weight: 400;
+    /*no fill needed*/	
+}
+/*- chart_datalabels--contrast to ensure data label visbility on Stacked & Heatmap Charts --*/
+.chart_datalabels--contrast .sap-custom-chart-data-labels { 
+	font-weight: 400;
+}
+/*----------------------------------------------------------------------------------------*/
+.saptheme .sap-custom-number-chart-primary-values{ /*no font-size defined so the font-size is adaptive*/
+    font-family: '72-Web';
+    font-weight: 400;
+}
+.saptheme .sap-custom-number-chart-primary-labels{
+    font-family: '72-Web';
+    font-size: 12px;
+    color: #556B82;
+}
+.saptheme .sap-custom-number-chart-secondary-values{ /*no font-size defined so the font-size is adaptive*/
+    font-family: '72-Web';
+    font-weight: 400;
+}
+.saptheme .sap-custom-number-chart-secondary-labels{
+    font-family: '72-Web';
+    font-size: 12px;
+	color: #556B82;
+}
+.saptheme .sap-custom-number-chart-primary-variance-titles{
+	font-size: 12px;
+}
+.saptheme .sap-custom-number-chart-secondary-variance-titles{
+	font-size: 12px;
+}
+.saptheme .sap-custom-chart-footer{ 
+    font-family: '72-Web';
+    font-size: 12px;
+    color: #556B82;
+    font-weight: 400;
+}
+.saptheme .sap-custom-chart-footer-placeholder{ 
+    font-size: 12px;
+    color: #556B82;
+}
+.saptheme .sap-custom-chart-reference-label{ 
+    font-family: '72-Web';
+    font-size: 12px;
+    fill: #000000;
+    font-weight: 400;
+}
+.saptheme .sap-custom-chart-time-series-vertical-grid-line{
+	stroke: #E1E6EB;
+}
+.saptheme .sap-custom-chart-time-series-horizontal-grid-line{
+	stroke: #E1E6EB;
+}
+.saptheme .sap-custom-chart-waterfall-connector-line{
+	stroke: #000000;
+}
+.saptheme .sap-custom-chart-bullet-pointer{
+	fill: #000000;
+	stroke: #000000
+}
+
+/* CUSTOM CLASSES FOR NUMBER CHARTS: FIXED FONT SIZE */
+/*------------------------------------------------------------------*/
+/* KPI Charts with fixed font size */
+.kpi_fixed-font-size .sap-custom-number-chart-primary-labels{
+    font-family: '72-Web';
+    font-size: 16px;
+    color: #556B82;
+}
+.kpi_fixed-font-size .sap-custom-number-chart-secondary-labels{
+    font-family: '72-Web';
+    font-size: 14px;
+    color: #556B82;
+}
+.kpi_fixed-font-size .sap-custom-number-chart-primary-values{
+    font-family: '72-Web';
+    font-size: 32px;
+    font-weight: 400;
+}
+.kpi_fixed-font-size .sap-custom-number-chart-secondary-values{
+    font-family: '72-Web';
+    font-size: 16px;
+    font-weight: 400;
+}
+/*---------------------------------------------------------------*/
+
+/*------------------------------------------------------------------ */
+/* CHECKBOX GROUP--------------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+.saptheme .sap-custom-checkbox-group-item:hover{ 
+    background-color:#dcf3ff;
+}
+.saptheme .sap-custom-checkbox-group-item-label,
+.checkBox_group .sap-custom-checkbox-group-item-label{
+    color: #131E29;
+    font-family: '72-Web';
+	font-size: 14px;
+}
+.saptheme .sap-custom-checkbox-group-mark-inner,
+.checkBox_group .sap-custom-checkbox-group-mark-inner{
+    color: #0064D9;
+} 
+.saptheme .sap-custom-checkbox-group-mark-outer,
+.checkBox_group .sap-custom-checkbox-group-mark-outer{
+    border-color: #556b81;
+    background-color: #fff;
+}
+
+/*------------------------------------------------------------------ */
+/* CLOCK------------------------------------------------------------ */
+/*------------------------------------------------------------------ */
+
+
+/*------------------------------------------------------------------ */
+/* COMMENT WIDGET--------------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+
+/*------------------------------------------------------------------ */
+/* COMPOSITE-------------------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+/*------------------------------------------------------------------ */
+/* DATA ACTION STARTER---------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+/*------------------------------------------------------------------ */
+/* DIMENSION INPUT CONTROL------------------------------------------ */
+/*------------------------------------------------------------------ */
+.saptheme .sap-custom-dimension-input-control-widget{   
+	background-color: #FFFFFF;
+}
+.saptheme .sap-custom-dimension-input-control-main-label{   
+	color: #131e29;
+	
+}
+.saptheme .sap-custom-dimension-input-control-sub-label{   
+    color:#0070f2;
+    font-weight:bold;
+}
+.saptheme .sap-custom-dimension-input-control-icon{  
+    color:#131e29; 
+}
+
+.saptheme .sap-custom-dimension-input-control-arrow{  
+    color:#0064d9;  
+}
+
+/*------------------------------------------------------------------ */
+/* DROPDOWN--------------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+.saptheme .sap-custom-dropdown-trigger{
+    border-radius: 4px 4px;
+    background-color: #ffffff;
+    border-top: solid #D5DADF 0.0625rem;
+    border-right: solid #D5DADF 0.0625rem;
+    border-left: solid #D5DADF 0.0625rem;
+    border-bottom: solid #556b81 0.0625rem;
+}  
+.saptheme .sap-custom-dropdown-trigger:hover{  
+    border-radius: 4px 4px; 
+    background-color: #ffffff;
+    border-top: solid #ABCFFF 0.0625rem;
+    border-right: solid #ABCFFF 0.0625rem;
+    border-left: solid #ABCFFF 0.0625rem;
+    border-bottom: solid #0064d9 0.0625rem;
+} 
+.saptheme .sap-custom-dropdown-trigger:active{
+    border-radius: 4px 4px;
+    background-color: #ffffff;
+    border-top: solid #0064D9 0.0625rem;
+    border-right: solid #0064D9 0.0625rem;
+    border-left: solid #0064D9 0.0625rem;
+    border-bottom: solid #0064D9 0.0625rem;
+} 
+.saptheme .sap-custom-dropdown-trigger-value{
+    font-family: '72-Web'; 
+    font-size: 0.875rem;
+    color: #131E29 ; 
+    background-color:transparent;
+}
+.saptheme .sap-custom-dropdown-trigger-arrow{
+    background-color: transparent;
+    color: #131E29; 
+    border-radius: 4px;
+    border: solid transparent 0.0625rem;
+    padding: 0px 5px 0px 5px;    
+}
+.saptheme .sap-custom-dropdown-trigger-arrow:active{
+    background-color: #EBF8FF; 
+    color: #0064D9; 
+    border-radius: 4px;
+    border: solid #0064d9 0.0625rem;
+    padding: 0px 5px 0px 5px;
+}
+.saptheme .sap-custom-dropdown-trigger-arrow:hover{
+    background-color: #eaecee; 
+    color: #0064D9;
+    border-radius: 4px;
+    border: solid #bcc3ca 0.0625rem;
+    padding: 0px 5px 0px 5px;
+}
+.saptheme .sap-custom-dropdown-item{ 
+    border: 1px solid transparent;
+    background-color:#FFFFFF;
+    color: #131E29;
+}  
+.saptheme .sap-custom-dropdown-item:hover{
+    color: #131e29;
+    background-color:#EAECEE;
+} 
+.saptheme .sap-custom-dropdown-item:active{
+    color: #131e29;
+    background-color:#DEE2E5;
+} 
+.saptheme .sap-custom-dropdown-selected-item{
+    color: #131e29;
+    background-color:#ebf8ff; 
+    border-bottom: 2px solid #0064d9;
+} 
+.saptheme .sap-custom-dropdown-menu{
+    border: 1px solid #959EA8;
+    border-radius: 6px 6px; 
+}
+.saptheme .sap-custom-dropdown-trigger-arrow-expanded{
+    background-color: #FFFFFF;
+} 
+ 
+/*------------------------------------------------------------------ */
+/* FILTER LINE------------------------------------------------------ */
+/*------------------------------------------------------------------ */
+
+.saptheme .sap-custom-filter-line{
+    background-color: #FFFFFF;
+	border-color:#a8b3bd;
+}
+.saptheme .sap-custom-filter-line-main-label{ 
+    color: #131e29;
+}
+
+.saptheme .sap-custom-filter-line-sub-label{ 
+    color: #131e29;
+}
+.saptheme .sap-custom-filter-line-icon{
+    color: #131e29;
+}
+.saptheme .sap-custom-filter-line-remove-icon{
+    color:#131e29;
+}
+.saptheme .sap-custom-filter-line-menu-item{
+    color:#131e29;
+}
+.saptheme .sap-custom-filter-line-menu-item:hover{ 
+    color:#131e29;
+    background-color: #eaecee;
+}
+.saptheme .sap-custom-filter-line-menu-item:active{
+    color:#131e29;
+    background-color: #dee2e5;
+}
+.saptheme .sap-custom-filter-line-menu-item-disabled{
+    color: #131e2940;
+}
+
+/*------------------------------------------------------------------ */
+/* FLOW LAYOUT PANEL------------------------------------------------ */
+/*------------------------------------------------------------------ */ 
+
+/*------------------------------------------------------------------ */
+/* GEO MAP---------------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+    .saptheme .sap-custom-geo-main-label{ 
+    font-family: '72-Web';
+    font-size: 14px;
+    color: #131E29;
+    font-weight: 700;
+}
+
+/*------------------------------------------------------------------ */
+/* IMAGE------------------------------------------------------------ */
+/*------------------------------------------------------------------ */ 
+    
+/*------------------------------------------------------------------ */
+/* INPUT CONTROL---------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+.saptheme .sap-custom-input-control-widget{
+	background-color: #FFFFFF;
+}
+.saptheme .sap-custom-input-control-main-label{ 
+	color: #131E29;
+}
+.saptheme .sap-custom-input-control-sub-label{
+    color:#0070F2; 
+    font-weight:bold;
+}
+.saptheme .sap-custom-input-control-icon{
+    color:#131E29; 
+}
+.saptheme .sap-custom-input-control-content{
+    color:#131E29;  
+}
+.saptheme .sap-custom-input-control-slider-label{
+    color:#131E29;
+    font-weight:bold;		
+} 
+.saptheme .sap-custom-input-control-mark-content{
+	color: #FFFFFF;
+}
+.saptheme .sap-custom-input-control-arrow{
+    color:#131E29; 
+}
+.saptheme .sap-custom-input-control-slider-progress{
+	background-color: #0064d9;
+}
+.saptheme .sap-custom-input-control-slider-background{
+	background-color: #0064d9;
+}  
+
+/*------------------------------------------------------------------ */
+/* INPUT FIELD------------------------------------------------------ */
+/*------------------------------------------------------------------ */     
+
+.saptheme .sap-custom-input-field-widget{
+    background-color: #FFFFFF;
+    border-top: solid #D5DADF 0.0625rem;
+    border-right: solid #D5DADF 0.0625rem;
+    border-left: solid #D5DADF 0.0625rem;
+    border-bottom: solid #556B81 0.0625rem;
+    /*No border-radius supported*/
+}
+.saptheme .sap-custom-input-field{
+    background-color: #FFFFFF;
+	color:#131E29;
+    font-size: 14px;
+}
+.saptheme .sap-custom-input-field-placeholder{
+    color:#556B82;
+	font-size: 14px;
+}
+
+/*------------------------------------------------------------------ */
+/* LANE------------------------------------------------------------- */
+/*------------------------------------------------------------------ */     
+
+/*------------------------------------------------------------------ */
+/* LIST BOX--------------------------------------------------------- */
+/*------------------------------------------------------------------ */   
+
+.saptheme .sap-custom-list-box-widget{
+	background-color: #FFFFFF;
+}
+.saptheme .sap-custom-list-box-item{
+	background-color: #FFFFFF;
+	color: #131e29;
+	font-size: 14px;
+}
+.saptheme .sap-custom-list-box-item:hover{
+	background-color: #eaecee;
+	color: #131e29;
+}
+.saptheme .sap-custom-list-box-item:active{
+	background-color: #dee2e5;
+	color: #131e29;
+}
+.saptheme .sap-custom-list-box-selected-item {
+    background-color: #ebf8ff;
+	color: #131e29;
+	font-size: 14px;
+}
+
+/*------------------------------------------------------------------ */
+/* PAGE------------------------------------------------------------- */
+/*------------------------------------------------------------------ */     
+    
+/*------------------------------------------------------------------ */
+/* PAGE BOOK-------------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+/*------------------------------------------------------------------ */
+/* PANEL------------------------------------------------------------ */
+/*------------------------------------------------------------------ */     
+
+/* Fiori Horizon Background Card with shadow. Can be applied to Panels and Flow Panels.
+   This CSS Class also applies to sidepanels to give them a shadow.*/ 
+.side-panel .sap-custom-flow-panel-widget, 
+.side-panel .sap-custom-panel-widget,
+.sidepanel .sap-custom-flow-panel-widget, 
+.sidepanel .sap-custom-panel-widget,
+.card .sap-custom-flow-panel-widget, 
+.card .sap-custom-panel-widget,
+.logic-group-card .sap-custom-flow-panel-widget,
+.logic-group-card .sap-custom-panel-widget{	
+	background-color:#fff;
+    box-shadow: 0 0 0.125rem 0 rgba(34,53,72,0.2), 
+                0 .125rem .25rem 0 rgba(34, 54, 73, 0.2);	
+}
+
+/*----Used for Page Header Composite------*/
+.card_Header .sap-custom-panel-widget{
+	background-color: #fff; 
+	border-bottom: 1px solid #d9d9d9;
+    box-shadow: 0 2px 2px 0 rgba(34, 54, 73, 0.05);
+}
+/*------------------------------------------------------------------ */ 
+/*------------------------------------------------------------------ */ 
+.logic-group__header .sap-custom-panel-widget{
+    border-bottom: 1px solid #A8B3BD;
+}
+/*------------------------------------------------------------------ */
+/* Logic Groups  --------------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+/*------------------------------------------------------------------ */
+/* Logic Group - Side Borders -------------------------------------- */
+/*------------------------------------------------------------------ */
+
+.logic-group__side__border--right .sap-custom-flow-panel-widget, 
+.logic-group__side__border--right .sap-custom-panel-widget,
+.logic-group__side__border--right .sap-custom-text-widget{
+    background-color:transparent;
+    border-right: 1px solid #A8B3BD;
+}
+.logic-group__side__border--top .sap-custom-flow-panel-widget, 
+.logic-group__side__border--top .sap-custom-panel-widget,
+.logic-group__side__border--top .sap-custom-text-widget{
+    background-color:transparent;
+    border-top: 1px solid #A8B3BD;
+}
+.logic-group__side__border-left .sap-custom-flow-panel-widget, 
+.logic-group__side__border-left .sap-custom-panel-widget,
+.logic-group__side__border-left .sap-custom-text-widget{
+    background-color:transparent;
+    border-left: 1px solid #A8B3BD;
+}
+.logic-group__side__border--bottom .sap-custom-flow-panel-widget, 
+.logic-group__side__border--bottom .sap-custom-panel-widget,
+.logic-group__side__border--bottom .sap-custom-text-widget{
+    background-color:transparent;
+    border-bottom: 1px solid #A8B3BD;
+}
+.logic-group__side__border .sap-custom-flow-panel-widget, 
+.logic-group__side__border .sap-custom-panel-widget,
+.logic-group__side__border .sap-custom-text-widget{
+    background-color:transparent;
+    border: 1px solid #A8B3BD;
+}
+
+/*------------------------------------------------------------------ */
+/* Logic Group - CARD - CARD --------------------------------------- */
+/*------------------------------------------------------------------ */
+
+
+.logic-group-card__card .sap-custom-flow-panel-widget, 
+.logic-group-card__card .sap-custom-panel-widget{
+    background-color: #f5f6f7;
+    border: 1px solid #bbbbbb;
+}
+.logic-group-card__card .sap-custom-button{
+    background-color: transparent;
+    color:#0064D9;
+    border-color:transparent;
+    border-radius:8px;
+}
+.logic-group-card__card .sap-custom-button:hover{
+    background-color: transparent; 
+    color:#0064D9;
+    border-color:#d6dade;
+}
+.logic-group-card__card .sap-custom-button:active{
+    background-color: transparent;
+    color:#0064D9;
+    border-color:#0070F2;
+}
+.logic-group-card__card-title .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 14px;
+    font-weight: 700;
+}
+.logic-group-card__card-subtitle .sap-custom-text{
+    font-size: 12px;
+    color: #556B82;
+    font-weight: 400;
+}
+.logic-group-card__card-link .sap-custom-text{
+    color: #0064D9;
+    font-size: 14px;
+}
+.logic-group-card__card-value .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 32px;
+    color: #1D2D3E;
+    font-weight: 400; 
+}
+.logic-group-card__card-label .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 16px;
+    color: #556B82; 
+}
+.logic-group-card__card-subvalue .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 16px;
+    color: #1D2D3E;
+    font-weight: normal;  
+}
+.logic-group-card__card-sublabel .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 14px;
+    color: #556B82;
+    font-weight: 400; 
+}
+.logic-group-card__card-content .sap-custom-text{ 
+    font-family: '72-Web';
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/*------------------------------------------------------------------ */
+/* MESSAGESTRIP  --------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+.messageStrip__text .sap-custom-text{
+    font-size: 14px;
+    color: #1D2D3E;
+    font-weight: 400;
+}
+.messageStrip--default .sap-custom-panel-widget,
+.messageStrip--default .sap-custom-input-control-widget{
+    background-color: #E1F4FF;
+    border: 1px solid #7bcfff;
+} 
+.messageStrip--default__icon .sap-custom-text{
+    color: #0070f2;
+    font-size: 16px;
+    font-family: "SAP-icons";
+}
+.messageStrip--error .sap-custom-panel-widget,
+.messageStrip--error .sap-custom-input-control-widget{
+    background-color: #FFEAF4;
+    border: 1px solid #ff8ec4;
+} 
+.messageStrip--error__icon .sap-custom-text{
+    color: #f53232;
+    font-size: 16px;
+    font-family: "SAP-icons";
+}
+.messageStrip--warning .sap-custom-panel-widget,
+.messageStrip--warning .sap-custom-input-control-widget{
+    background-color: #FFF8D6; 
+    border: 1px solid #ffe770;	 
+} 
+.messageStrip--warning__icon .sap-custom-text{
+    color: #e76500;
+    font-size: 16px;
+    font-family: "SAP-icons";
+}
+.messageStrip--success .sap-custom-panel-widget,
+.messageStrip--success .sap-custom-input-control-widget{
+    background-color: #F5FAE5; 
+    border: 1px solid #cee67e;	
+} 
+.messageStrip--success__icon .sap-custom-text{
+    color: #30914C;
+    font-size: 16px;
+    font-family: "SAP-icons";
+}
+.messageStrip--information .sap-custom-panel-widget,
+.messageStrip--information .sap-custom-input-control-widget{
+    background-color: #E1F4FF; 
+    border: 1px solid #7bcfff;
+} 
+.messageStrip--information__icon .sap-custom-text{
+    color: #0070f2;
+    font-size: 16px;
+    font-family: "SAP-icons";
+}
+.messageStrip--neutral .sap-custom-panel-widget,
+.messageStrip--neutral .sap-custom-input-control-widget{
+    background-color: #EFF1F2;
+    border: 1px solid #788FA6;	
+} 
+.messageStrip--neutral__icon .sap-custom-text{
+    color: #788FA6;
+    font-size: 16px;
+    font-family: "SAP-icons";
+}
+
+/*------------------------------------------------------------------ */
+/* POPUP------------------------------------------------------------ */
+/*------------------------------------------------------------------ */ 
+
+.saptheme .sap-custom-popup{
+    background-color:#FFFFFF;
+}
+.saptheme .sap-custom-popup-header-container,
+.popup_dialog .sap-custom-popup-header-container{
+    background-color:#FFFFFF;
+}
+.saptheme .sap-custom-popup-header-font,
+.popup_dialog .sap-custom-popup-header-font{
+    color:#131E29;
+    font-family: "72-Web";
+}
+.saptheme .sap-custom-popup-footer-container,
+.popup_dialog .sap-custom-popup-footer-container{
+    background-color:#FFFFFF;
+}
+.saptheme .sap-custom-popup-footer-button,
+.popup_dialog .sap-custom-popup-footer-button{
+    background-color: transparent;
+    color:#0064D9;
+    font-family:"72-Web";
+}
+.saptheme .sap-custom-popup-footer-button:hover,
+.popup_dialog .sap-custom-popup-footer-button:hover{
+    border-color:#BCC3CA;
+    background-color:#EAECEE;
+    color:#0064D9;
+    font-family: "72-Web";
+}
+.saptheme .sap-custom-popup-footer-button:active,
+.popup_dialog .sap-custom-popup-footer-button:active{
+    border-color:#0064D9;
+    background-color:#FFFFFF;
+    color:#0064D9;
+    font-family: "72-Web";
+}
+.saptheme .sap-custom-popup-footer-emphasized,
+.popup_dialog .sap-custom-popup-footer-emphasized{
+    border-color:#0070f2;
+    background-color:#0070f2;
+    color:#FFFFFF;
+    font-family: "72-Web";
+}
+.saptheme .sap-custom-popup-footer-emphasized:hover,
+.popup_dialog .sap-custom-popup-footer-emphasized:hover{
+    border-color:#0064d9;
+    background-color:#0064d9;
+    color:#FFFFFF;
+    font-family: "72-Web";
+}
+.saptheme .sap-custom-popup-footer-emphasized:active,
+.popup_dialog .sap-custom-popup-footer-emphasized:active{
+    border-color:#0064D9;
+    background-color:#ffffff;
+    color:#0064D9;
+    font-family: "72-Web";
+}
+
+/*------------------------------------------------------------------ */
+/* R VISUALIZATION-------------------------------------------------- */
+/*------------------------------------------------------------------ */     
+    
+/*------------------------------------------------------------------ */
+/* RADIO BUTTON GROUP----------------------------------------------- */
+/*------------------------------------------------------------------ */         
+
+.saptheme .sap-custom-radio-button-group-item:hover{
+    background-color:#EAECEE;
+}
+.saptheme .sap-custom-radio-button-group-item-label,
+.radioButton_group .sap-custom-radio-button-group-item-label{
+    color: #131E29;
+    font-size: 14px;
+}
+.saptheme .sap-custom-radio-button-group-mark,
+.radioButton_group .sap-custom-radio-button-group-mark{
+    font-size: 14px
+}
+.saptheme .sap-custom-radio-button-group-mark-inner,
+.radioButton_group .sap-custom-radio-button-group-mark-inner{
+    background-color: #0064D9;
+}
+.saptheme .sap-custom-radio-button-group-mark-outer,
+.radioButton_group .sap-custom-radio-button-group-mark-outer{
+    border-color: #556B81;
+    background-color: transparent;
+}
+
+/*------------------------------------------------------------------ */
+/* RANGE SLIDER----------------------------------------------------- */
+/*------------------------------------------------------------------ */  
+
+.saptheme .sap-custom-range-slider-progress-bar{
+    background-color:#0064d9;
+}
+
+.saptheme .sap-custom-range-slider-background-bar{
+    background-color:#d5dadd;
+}
+
+.saptheme .sap-custom-range-slider-tooltip-font{
+    color:#ffffff;
+}
+.saptheme .sap-custom-range-slider-handle-and-tooltip-begin{
+    background-color: #0064d9;
+}
+
+.saptheme .sap-custom-range-slider-handle-and-tooltip-end{
+    background-color: #0064d9;
+}
+
+/*------------------------------------------------------------------ */
+/* RSS READER------------------------------------------------------- */
+/*------------------------------------------------------------------ */         
+    
+/*------------------------------------------------------------------ */
+/* SHAPE------------------------------------------------------------ */
+/*------------------------------------------------------------------ */         
+    
+/*------------------------------------------------------------------ */
+/* SLIDER----------------------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+.saptheme .sap-custom-slider-tooltip-font{
+    color:#131E29;
+}
+
+/*------------------------------------------------------------------ */
+/* SWITCH----------------------------------------------------------- */
+/*------------------------------------------------------------------ */     
+    
+/*------------------------------------------------------------------ */
+/* TAB STRIP-------------------------------------------------------- */
+/*------------------------------------------------------------------ */     
+
+.saptheme .sap-custom-tab-strip-widget{
+    background-color: transparent;
+}
+.saptheme .sap-custom-tab-strip-tab-bar{
+    background-color: transparent;
+}
+.saptheme .sap-custom-tab-strip-tab{
+	font-family:'72-Web';
+	font-size:14px;
+	font-weight:700;
+	color: #131e29;
+}
+.saptheme .sap-custom-tab-strip-tab:hover{
+	font-family:'72-Web';
+	font-size:14px;
+	font-weight:700;
+	color: #131e29;
+}
+.saptheme .sap-custom-tab-strip-tab-container{
+    padding-left: 24px;
+	padding-right: 8px;
+}
+.saptheme .sap-custom-tab-strip-selected-tab-container{
+    background-color: transparent;
+}
+.saptheme .sap-custom-tab-strip-selected-tab{
+	font-family:'72-Web';
+	font-size:14px;
+	font-weight:700;
+	color: #0064D9;
+}
+
+/*------------------------------------------------------------------ */
+/* TABLE------------------------------------------------------------ */
+/*------------------------------------------------------------------ */         
+
+/*-------------------Read-only Table-------------------------- */ 
+
+.saptheme .sap-custom-table-widget{ 
+	background-color: transparent;
+}
+
+.saptheme .sap-custom-table-title,
+.table--styled .sap-custom-table-title{ 
+	color: #131e29;
+}
+.saptheme .sap-custom-table-subtitle,
+.table--styled .sap-custom-table-subtitle{ 
+    color:#556b82;
+}
+.saptheme .sap-custom-table-column-row-headers,
+.table--styled .sap-custom-table-column-row-headers{ 
+	background-color: transparent;
+	color: #131e29;
+}
+.saptheme .sap-custom-table-grid-line,
+.table--styled .sap-custom-table-grid-line{ 
+    border-color: transparent;
+}
+.saptheme .sap-custom-table-freeze-lines,
+.table--styled .sap-custom-table-freeze-lines{ 
+	border-color:#a8b3bd;
+}
+.saptheme .sap-custom-table-dimension-header-cell,
+.table--styled .sap-custom-table-dimension-header-cell{
+	color: #131E29;
+}
+.saptheme .sap-custom-table-dimension-member-cell,
+.table--styled .sap-custom-table-dimension-member-cell{
+	color: #131E29;
+	background-color: transparent;
+}
+.saptheme .sap-custom-table-dimension-member-expand-icon,
+.table--styled .sap-custom-table-dimension-member-expand-icon{
+    color:#0064D9;
+}
+.saptheme .sap-custom-table-data-cell{
+    color:#131E29;
+	background-color: transparent;
+}
+
+.saptheme .sap-custom-table-editable-cell{
+    color:#131e29;
+	background-color: transparent;
+}
+
+.saptheme .sap-custom-table-selected-cell,
+.table--styled .sap-custom-table-selected-cell{
+    border-color:#0064d9;
+}
+.saptheme .sap-custom-table-data-cell-simple-line,
+.table--styled .sap-custom-table-data-cell-simple-line{ 
+	border-bottom: 1px solid #e5e5e5;	 
+}
+.saptheme .sap-custom-table-row-dimension-header-cell-simple-line,
+.table--styled .sap-custom-table-row-dimension-header-cell-simple-line{ 
+	 border-bottom: 1px solid #e5e5e5;
+}
+.saptheme .sap-custom-table-row-dimension-member-cell-simple-line,
+.table--styled .sap-custom-table-row-dimension-member-cell-simple-line{ 
+	border-bottom: 1px solid #e5e5e5; 
+}
+
+/*------------------------------------------------------------*/
+/*
+In Evening we have further CSS Classes defined for:
+
+.sap-custom-table-selected-cell
+.sap-custom-table-data-cell-simple-line
+.sap-custom-table-row-dimension-header-cell-simple-line
+.sap-custom-table-row-dimension-member-cell-simple-line
+
+In Morning Horizon the default from SAC is used.
+
+
+
+
+
+*/
+/*------------------------------------------------------------*/
+
+/*-------------------Read-only Table End--------------------- */ 
+
+/*-------------------Editable Table-------------------------- */ 
+
+.planning .sap-custom-table-widget{ 
+	background-color: transparent;
+}
+.planning .sap-custom-table-title,
+.table--styled .sap-custom-table-title{ 
+	color: #131e29;
+}
+.planning .sap-custom-table-subtitle,
+.table--styled .sap-custom-table-subtitle{ 
+    color:#556b82;
+}
+.planning .sap-custom-table-column-row-headers,
+.table--styled .sap-custom-table-column-row-headers{ 
+	background-color: transparent;
+	color: #131e29;
+}
+.planning .sap-custom-table-grid-line,
+.table--styled .sap-custom-table-grid-line{ 
+    border-color: transparent;
+}
+.planning .sap-custom-table-freeze-lines,
+.table--styled .sap-custom-table-freeze-lines{ 
+	border-color:#a8b3bd;
+}
+.planning .sap-custom-table-dimension-header-cell,
+.table--styled .sap-custom-table-dimension-header-cell{
+	color: #131E29;
+}
+.planning .sap-custom-table-dimension-member-cell,
+.table--styled .sap-custom-table-dimension-member-cell{
+	color: #131E29;
+}
+.planning .sap-custom-table-dimension-member-expand-icon,
+.table--styled .sap-custom-table-dimension-member-expand-icon{
+    color:#0064D9;
+}
+.planning .sap-custom-table-data-cell{
+    color:#131E29;
+	background-color: #eff1f2;
+}
+
+.planning .sap-custom-table-editable-cell{
+    color:#131e29;
+	background-color: #ffffff;
+}
+
+.planning .sap-custom-table-grid-line,
+.table--styled .sap-custom-table-grid-line{ 
+    border-color: transparent;
+}
+
+.planning .sap-custom-table-selected-cell,
+.table--styled .sap-custom-table-selected-cell{
+    border-color:#0064d9;
+}
+.planning .sap-custom-table-data-cell-simple-line,
+.table--styled .sap-custom-table-data-cell-simple-line{ 
+	border-bottom: 1px solid #e5e5e5;	 
+}
+.planning .sap-custom-table-row-dimension-header-cell-simple-line,
+.table--styled .sap-custom-table-row-dimension-header-cell-simple-line{ 
+	 border-bottom: 1px solid #e5e5e5;
+}
+
+/*-------------------Editable Table End -------------------------- */ 
+
+/*
+ Please notice that the following class is supposed to be applied anytime there are
+ non-editable cells in the planning table as a result of the application of styling rules. 
+ In the case in which a different style is required for non editable cells a new class 
+ needs to be specified and the sap-custom-table-data-cell section has to be specified 
+ according to the desired style for non-editable cells 
+ */ 
+ .table--styled .sap-custom-table-editable-cell{
+    color:#58595b;
+}
+.table--styled .sap-custom-table-data-cell{
+    color:#a49f9e;
+}
+/*-------*/
+
+/*------------------------------------------------------------------ */
+/* TEXT ------------------------------------------------------------ */
+/*------------------------------------------------------------------ */
+.page__title .sap-custom-text{ 
+    /*  font-family: '72-Web';*/
+    font-size: 24px;
+    color: #131e29;
+    font-weight: 900;   
+}
+
+.page__subtitle .sap-custom-text{ 
+    font-size: 14px;
+    color: #556B82;
+    font-weight: 400;
+}
+
+.page__desc__title .sap-custom-text{ 
+    font-size: 14px;
+    color: #131e29;
+    font-weight: 700;
+}
+
+.page__desc__content .sap-custom-text{ 
+    font-size: 14px;
+    color: #131e29;
+    font-weight: 400;
+}
+
+.label .sap-custom-text{ 
+    font-size: 14px;
+    color: #556B82;
+    font-weight: 700;
+}
+
+.link .sap-custom-text{
+    color: #0064D9;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.text--negative .sap-custom-text{
+    color: #AA0808;
+}
+.text--critical .sap-custom-text{
+    color: #b44f00;
+}
+.text--positive .sap-custom-text{
+    color: #256F3A;
+}
+.text--information .sap-custom-text{
+    color: #0064d9;
+}
+.text--neutral .sap-custom-text{
+    color: #131e29;
+}
+
+/* Used when creating a text widget with the same style as a chart title or table title*/
+.logic-group__title .sap-custom-text,
+.logicGroupTitle .sap-custom-text{ 
+  /*  font-family: '72-Web';*/
+    font-size: 16px;
+    color: #131e29;
+    font-weight: 700;
+}
+.widget__title .sap-custom-text{
+	/*  font-family: '72-Web';*/
+    font-size: 14px;
+    color: #131e29;
+    font-weight: 700;
+}
+
+.widget__subtitle .sap-custom-text,
+.logic-group__subtitle .sap-custom-text{
+	/*  font-family: '72-Web';*/
+    font-size: 12px;
+    color: #556B82;
+    font-weight: 400;
+}
+
+/*------------------------------------------------------------------ */
+/* TEXT AREA-------------------------------------------------------- */
+/*------------------------------------------------------------------ */
+
+.saptheme .sap-custom-text-area-widget{
+    background-color: #FFFFFF;;
+    border-bottom: 0.0625rem solid #556b81 ; 	
+}
+.saptheme .sap-custom-text-area{ 
+    background-color: transparent;
+	color:#131E29;
+}
+.saptheme .sap-custom-text-area-placeholder{
+    color:#556B82;
+}
+
+/*------------------------------------------------------------------ */
+/* VALUE DRIVER TREE------------------------------------------------ */
+/*------------------------------------------------------------------ */
+    
+/*------------------------------------------------------------------ */
+/* WEB PAGE--------------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+
+/*------------------------------------------------------------------------------------------------------------ */
+
+/*The standard objects for.saptheme ends here*/
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+/*In the next section you will find predefined class names for different purposes*/
+
+/*------------------------------------------------------------------ */
+/* CUSTOM PANEL AS POP OVER ---------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+.popover .sap-custom-panel-widget{
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0.13rem rgba(34, 54, 73, 0.4),
+                0 0.13rem 0.3rem rgba(34, 54, 73, 0.4);
+}
+
+/*------------------------------------------------------------------ */
+/* CUSTOM PANEL AS POP UP------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+.popup-panel .sap-custom-panel-widget{
+    background-color:#FFFFFF;
+    box-shadow: 0 0 0 .0625rem    rgba(34,53,72,0.48),
+                0 .125rem .5rem 0 rgba(34,53,72,0.3);
+}
+.popup-panel__header .sap-custom-panel-widget{
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #A8B3BD;
+}
+.popup-panel__footer .sap-custom-panel-widget{
+    background-color:transparent;
+    border-top: 1px solid #A8B3BD;
+}
+.popup-panel__title .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 16px;
+    font-weight: 700;
+}
+.popup-panel__button .sap-custom-button{
+    border-color:transparent;
+    background-color:transparent;
+    color:#0064D9;
+}
+.popup-panel__button .sap-custom-button:hover{
+    border-color:#bcc3ca;
+    background-color:#EAECEE;
+    color:#0064D9;
+}
+.popup-panel__button .sap-custom-button:active{
+    border-color:#0064d9;
+    background-color:#ffffff;
+    color:#0064D9;
+}
+.popup-panel__button--emphasized .sap-custom-button{
+    border-color:#0070f2;
+    background-color:#0070f2;
+    color:#FFFFFF;
+}
+.popup-panel__button--emphasized .sap-custom-button:hover{
+    border-color:#0064d9;
+    background-color:#0064d9;
+    color:#FFFFFF;
+}
+.popup-panel__button--emphasized .sap-custom-button:active{
+    border-color:#0064d9;
+    background-color:#ffffff;
+    color:#0064d9;
+}
+
+
+/*------------------------------------------------------------------ */
+/* NEGATIVE PATH BUTTON IN POPUPS AS PANEL  ------------------------ */
+/*------------------------------------------------------------------ */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = No Borders*/
+
+.popup-panel__button--negative .sap-custom-button{
+    border-color:transparent;
+    background-color:transparent;
+    color:#0064D9;
+}
+.popup-panel__button--negative .sap-custom-button:hover{
+    border-color:#bcc3ca;
+    background-color:#eaecee;
+    color:#0064D9;
+}
+.popup-panel__button--negative .sap-custom-button:active{
+    border-color: #0064d9;
+    background-color:#FFFFFF;
+    color:#0064D9;
+}
+
+/*------------------------------------------------------------------ */
+/* System Overview additional settings - Begin                       */
+.popup-panel__side__border--right .sap-custom-panel-widget{
+    background-color:transparent;
+    border-right: 1px #A8B3BD solid ;
+}
+.popup-panel__side__border--top .sap-custom-panel-widget{
+    background-color:transparent;
+    border-top: 1px #A8B3BD solid ; 
+}
+.popup-panel__side__border--left .sap-custom-panel-widget{
+    background-color:transparent;
+    border-left: 1px #A8B3BD solid ; 
+}
+.popup-panel__side__border--bottom .sap-custom-panel-widget{
+    background-color:transparent;
+    border-bottom: 1px #A8B3BD solid ; 
+}
+.popup-panel__content_subtitle .sap-custom-text{
+    font-size: 14px;
+    color: #556B82;
+    font-weight: 400;
+}
+.popup-panel__content_title .sap-custom-text{ 
+    font-size: 14px;
+    color: #1D2D3E;
+    font-weight: 700;
+}
+/* System Overview additional settings - End                         */
+/*------------------------------------------------------------------ */
+
+/*------------------------------------------------------------------ */
+/* TBD Change to Application BAR? SHELL Bar ------------------------------------------------------- */
+/*------------------------------------------------------------------ */
+/* Shellbar Panel */
+.story-shell-bar .sap-custom-panel-widget{
+    border-bottom: 1px solid #d9d9d9;
+    background-color: #fff;
+}
+
+/* Shellbar Package Title */
+.story-shell-bar__title .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Shellbar Story Title */
+.story-shell-bar__subtitle .sap-custom-text{
+    font-family: '72-Web';
+    font-size: 16px;
+    font-weight: 700;
+    color: #0064D9;
+}
+
+/*------------------------------------------------------------------ */
+/* NAV MENU STYLING ------------------------------------------------ */
+/*------------------------------------------------------------------ */ 
+
+/*Menu Item - standard format*/
+.nav-menu__item .sap-custom-panel-widget{
+    background-color:#FFFFFF;
+    border-left: 2px solid #e5e5e5;
+}
+
+/*Menu Item Highlighting*/
+.nav-menu__item--active .sap-custom-panel-widget{
+    background-color:#ebf8ff;
+    border-left: 2px solid #0064D9;
+}
+
+/* Menu Item Text */
+.nav-menu__item__text .sap-custom-text{
+    font-size: 14px;
+    color: #131e29;
+    font-weight: normal;
+}
+
+/*Menu Separator*/
+.nav-menu__separator .sap-custom-shape{
+    stroke: #D9D9D9
+}
+
+/* Menu Section Text */
+.nav-menu__section__title .sap-custom-text{
+    font-size: 14px;
+    color: #131e29;
+    font-weight: bold;
+}
+
+
+/*------------------------------------------------------------------ */
+/*- LANDING AND OVERVIEW PAGE -------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+/* Card Title for Landing page */
+.landing-page__card__title .sap-custom-text{
+    font-size: 24px;
+    font-weight: 900;
+}
+
+/* Card Links for Landing page */
+.landing-page__card__desc .sap-custom-text{
+    font-size: 14px;
+    font-weight: 300;
+    color: #0064D9;
+    text-decoration: none;
+}
+
+
+/*------------------------------------------------------------------ */
+/*- INPUT FORM POP-UP ---------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+/* Input Form Popup - widget label */
+.input-form__label .sap-custom-text{
+    font-size: 14px;
+    font-weight: normal;
+    color: #131e29;
+}
+
+
+/* Input Form Popup - Comment Box */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 4px*/
+
+.input-form__input-text-box .sap-custom-text-area-widget{
+    border: 1px solid #556b81;
+    background-color: #fff;
+}
+.input-form__input-text-box .sap-custom-text-area{
+    font-size: 14px;
+    color: #131e29;
+    font-weight: normal;
+    background-color: #fff;
+}
+.input-form__input-text-box .sap-custom-text-area-placeholder{
+    font-size: 14px;
+    color: #556b82;
+}
+
+
+/* Input Form Popup - Input Field*/
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 4px*/
+
+.input-form__input-field .sap-custom-input-field-widget{
+    border: 1px solid #556b81;
+    background-color: #fff;
+}
+.input-form__input-field .sap-custom-input-field{
+    font-size: 14px;
+    color: #131e29;
+    font-weight: normal;
+    border-color: transparent;
+    background-color: #FFFFFF;
+}
+.input-form__input-field .sap-custom-input-field-placeholder{
+    font-size: 14px;
+    color: #556b82;
+}
+
+
+/* Input Form Popup - Input Field Read Only*/
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 4px*/
+
+.input-form__input-field--read-only .sap-custom-input-field-widget{
+    border: 1px solid #556b81;
+    background-color: #eaecee;
+}
+.input-form__input-field--read-only .sap-custom-input-field{
+    font-size: 14px;
+    color: #131e29;
+    font-weight: normal;
+    border-color: #556b81;
+    background-color: #eaecee;
+}
+.input-form__input-field--read-only .sap-custom-input-field-placeholder{
+    font-size: 14px;
+    color: transparent;
+}
+
+
+/* Input Form Popup - Input Control */
+.input-form__input-control .sap-custom-input-control-widget{
+	border: 1px solid #556b81;
+	background-color: #FFFFFF;
+}
+.input-form__input-control .sap-custom-input-control-sub-label{
+    color:#0070f2;
+    font-weight:bold;
+}
+
+
+/* Dropdown as Input Control in Popup */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 4px*/
+
+.input-form__drop-down .sap-custom-dropdown-widget{
+    border: 1px solid #556b81;
+    background-color: #FFFFFF;
+}
+.input-form__drop-down .sap-custom-dropdown-trigger{
+    border-radius: 4px 4px;
+    background-color:transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+} 
+.input-form__drop-down .sap-custom-dropdown-trigger:hover{  
+    border-radius: 4px 4px;
+    background-color: #eaecee;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+} 
+.input-form__drop-down .sap-custom-dropdown-trigger:active{
+    border-radius: 4px 4px;
+    background-color: #FFF;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+} 
+.input-form__drop-down .sap-custom-dropdown-trigger-value{
+    font-family: '72-Web'; 
+    font-size: 14px;
+    color: #131e29; 
+}
+.input-form__drop-down .sap-custom-dropdown-trigger-arrow{
+    font-size: 16px;
+    background-color: transparent;
+    color: #0064d9;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0px 5px 0px 5px;
+}
+.input-form__drop-down .sap-custom-dropdown-trigger-arrow:active{
+    background-color: #FFFFFF; 
+    color: #0064D9; 
+    border-radius: 4px;
+    border: 1px solid transparent;
+    padding: 0px 5px 0px 5px;
+}
+.input-form__drop-down .sap-custom-dropdown-trigger-arrow:hover{
+    color: #0064d9;
+    background-color: #eaecee;
+    border-radius: 4px;
+    border: 1px solid #bcc3ca;
+    padding: 0px 5px 0px 5px;
+} 
+.input-form__drop-down .sap-custom-dropdown-item:active{
+    color: #131e29;
+    font-weight: 400;
+} 
+.input-form__drop-down .sap-custom-dropdown-item{
+    color: #131e29;
+    font-weight: 400;
+} 
+.input-form__drop-down .sap-custom-dropdown-selected-item{
+    color: #131e29;
+    font-weight: 400;
+    background-color: #ebf8ff   ; 
+    border-bottom: #0064d9 1px solid;
+} 
+.input-form__drop-down .sap-custom-dropdown-trigger-arrow-expanded{
+    background-color: #FFFFFF;
+}
+
+
+/*------------------------------------------------------------------ */
+/*- LEFT PANEL ----------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+
+/* Left panel icons */
+.side-panel__icon-button .sap-custom-button{
+    font-size: 14px;
+    color: #1D2D3E;
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: bold;
+}
+.side-panel__icon-button .sap-custom-button:hover{
+    font-size: 14px;
+    color: #0064D9;
+    background-color: transparent;
+    border-color: transparent;
+    font-weight: bold;
+}
+
+
+/* Content Help Links Panel - Buttons */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 8px*/
+
+.side-panel__link-button .sap-custom-button-widget{
+    border:2px solid #d9d9d9;
+    background-color:#FDFDFD;
+}
+.side-panel__link-button .sap-custom-button{
+    color:#0064D9;
+    border-color: transparent;
+    background-color:transparent;
+}
+.side-panel__link-button .sap-custom-button:hover{
+    color:#0064D9;
+    border-color:#bcc3ca;
+    background-color:#EAECEE;
+}
+.side-panel__link-button .sap-custom-button:active{
+    color:#0064D9;
+    border-color:#0064d9;
+    background-color:#FFFFFF;
+} 
+
+
+/*------------------------------------------------------------------ */
+/*- FILTER PANEL ----------------------------------------------------- */
+/*------------------------------------------------------------------ */ 
+/* FilterPanel - Input Control as page filter */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 8px*/
+
+.filter--input-control .sap-custom-input-control-widget{
+    border: 1px solid #E5E5E5;
+    background-color: transparent;
+}
+.filter--input-control .sap-custom-input-control-arrow{
+    color: #0064D9;
+}
+.filter--input-control .sap-custom-input-control-main-label{
+    color: #1D2D3E;
+    font-weight:bold;
+}
+.filter--input-control .sap-custom-input-control-sub-label{
+    color:#0064D9;
+    font-weight:bold;
+}
+
+
+/* Panel for Dropdown as page filter */
+.filter__border--drop-down .sap-custom-panel-widget{
+	border: thin solid #E5E5E5;
+	background-color: #FFFFFF;
+}
+
+
+/* FilterPanel - Dropdown as page filter */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = No Borders*/
+
+/* Please notice that in order to be properly rendered this widget needs to be included in a Panel with the following styling features: */
+/*  CSS Class = filter__border--drop-down*/
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 6px*/
+
+.filter--drop-down .sap-custom-dropdown-trigger,
+.dropdown_ic .sap-custom-dropdown-trigger{
+    border-radius: 4px 4px;
+    background-color: #ffffff;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+} 
+.filter--drop-down .sap-custom-dropdown-trigger:hover{  
+    border-radius: 4px 4px;
+    background-color: #ffffff;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+} 
+.filter--drop-down .sap-custom-dropdown-trigger:active{
+    border-radius: 4px 4px;
+    background-color: #ffffff;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+} 
+.filter--drop-down .sap-custom-dropdown-trigger-value{
+    font-family: '72-Web'; 
+    font-size: 12px;
+    color: #131e29; 
+}
+.filter--drop-down .sap-custom-dropdown-trigger-arrow{
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #0064d9; 
+    border-radius: 4px;
+    border: solid transparent 0.0625rem;
+    padding: 0px 5px 0px 5px;    
+}
+.filter--drop-down .sap-custom-dropdown-trigger-arrow:active{
+    background-color: transparent; 
+    color: #0064D9; 
+    border-radius: 4px;
+    border: solid transparent 0.0625rem;
+    padding: 0px 5px 0px 5px;
+}
+.filter--drop-down .sap-custom-dropdown-trigger-arrow:hover{
+    color: #1D2D3E;
+    background-color: #E5E5E5;
+    border-radius: 4px;
+    border: solid transparent 0.0625rem;
+    padding: 0px 5px 0px 5px;
+}  
+.filter--drop-down .sap-custom-dropdown-item:active{
+    color: #1D2D3E;
+    font-weight: 400;
+} 
+.filter--drop-down .sap-custom-dropdown-item{
+    color: #1D2D3E;
+    font-weight: 400;
+} 
+.filter--drop-down .sap-custom-dropdown-selected-item{
+    color: #1D2D3E;
+    font-weight: 400;
+    background-color: #DCF3FF; 
+    border-bottom: solid transparent;
+} 
+.filter--drop-down .sap-custom-dropdown-trigger-arrow-expanded{
+    background-color: #E5E5E5;
+}
+
+
+/* FilterPanel - Measure Input Control as page filter */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 8px*/
+
+.filter--measure .sap-custom-input-control-widget{
+    border: 1px solid #E5E5E5;
+    background-color: transparent; 
+}
+.filter--measure .sap-custom-input-control-sub-label{
+    color:#1D2D3E;
+}
+.filter--measure .sap-custom-input-control-arrow{
+    color: #0064D9;
+}
+
+
+/* FilterPanel - Calculation Input Control */
+/* After applying this class to the respective widget, please also set up the following features in the styling panel */
+/*  border = All Borders*/
+/*  border color = transparent*/
+/*  corner radius = 8px*/
+
+.filter--calculation .sap-custom-calculation-input-control-widget{
+    border: 1px solid #E5E5E5;
+    background-color: transparent;
+}
+.filter--calculation .sap-custom-calculation-input-control-icon{
+    color: transparent;
+} 
+.filter--calculation .sap-custom-calculation-input-control-arrow{
+    color: #0064D9;
+}
+.filter--calculation .sap-custom-calculation-input-control-main-label{
+    color: #1D2D3E;
+    font-weight:bold;
+}
+.filter--calculation .sap-custom-calculation-input-control-sub-label{
+    color:#0064D9;
+    font-weight:bold;
+}
+
+/*------------------------------------------------------------------ */
+/*- Background Colors----------------------------------------------- */
+/*------------------------------------------------------------------ */
+/*  For special use cases where the background color without shadow or border is needed */
+
+.logic-group-card__background .sap-custom-flow-panel-widget,
+.logic-group-card__background .sap-custom-panel-widget{	
+	background-color:#fff;	
+}
+
+.logic-group-card__card__background .sap-custom-flow-panel-widget, 
+.logic-group-card__card__background .sap-custom-panel-widget{
+    background-color: #f5f6f7;
+}
+
+.page__background .sap-custom-flow-panel-widget, 
+.page__background .sap-custom-panel-widget{
+    background-color: #f5f6f7;
+}
