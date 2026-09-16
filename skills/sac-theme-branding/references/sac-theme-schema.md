@@ -107,9 +107,10 @@ had, which is worth mentioning to the customer.
 `variance` and `single_color` carry no swatch references, so their values come
 from the spec directly. `forceReset` is a boolean flag - leave it as exported.
 
-## Trap 4: font families that are absent, not just empty
+## Trap 4: fonts that silently do not resolve
 
-Three separate problems, all of which silently fall back to the SAC default:
+Four separate problems. The first three leave the slot falling back to the SAC
+default; the fourth makes every slot fail at once:
 
 1. **Empty strings.** `fontFamily: ""` with size and colour set. A search for
    the incumbent font name will never find these.
@@ -121,6 +122,16 @@ Three separate problems, all of which silently fall back to the SAC default:
    value as `'X'`, `"X"` or bare, inconsistently. Preserve whatever convention
    each entry already uses rather than normalising - that is the form SAC is
    known to accept in that slot.
+4. **The JSON wants the family name lowercased.** The theme dialog stores
+   family names in lower case, and a value pushed back in has to match or the
+   font simply does not resolve. A stock export gives the game away: it carries
+   both `72-Web` and `72-web` for the same font, the lowercase ones being the
+   slots the dialog itself wrote. Write `inter`, not `Inter`.
+
+   This applies to the JSON layer only. Custom CSS is ordinary CSS and takes
+   the family in normal case, so the same theme legitimately spells the font
+   two ways across the two files. `build_theme.py` lowercases for the JSON
+   (`font.lowercaseInJson`, on by default); `build_css.py` does not.
 
 Beware false positives when adding keys. A container object can hold a stray
 `fontWeight` alongside child style objects; adding a font family there invents

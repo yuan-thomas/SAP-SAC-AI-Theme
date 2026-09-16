@@ -96,7 +96,11 @@ Read `references/palette-design.md`. The parts that matter most:
 - Semantic colours must read as meaning first, brand second.
 
 Fill in the `color` values in `spec.json`. Set `font.family` and
-`font.apply: true` only if the font is confirmed on the tenant. Add a
+`font.apply: true` only if the font is confirmed on the tenant. Write the family
+in normal case; `font.lowercaseInJson` (default on) lowercases it for the JSON,
+which is what the theme dialog stores and what a pushed-back value has to match.
+The CSS layer keeps normal case, so the two files spell the font differently on
+purpose. Add a
 `headerBar` block if the customer's reports put a coloured bar behind widget
 titles; if the swatch set has no role for that, activate a spare slot via
 `activate` (see `references/sac-theme-schema.md`, Trap 5).
@@ -114,6 +118,14 @@ Produces two files:
 - `Acme-theme-branded.json` - swatches and palettes only.
 - `Acme-theme-branded-full.json` - plus refreshed colour caches, font applied
   and gaps filled, and any header-bar binding.
+
+**The scoped file carries no typography whatsoever.** Font families live only in
+`widgetSettings` and `sectionSettings`, both of which sit outside
+`theme.colors` / `theme.palettes` and are therefore copied through untouched. A
+customer who imports the scoped file will find every incumbent family name still
+there - a stock export leaves 60+ `72-Web` strings - and will reasonably report
+that the font did not apply. It did not; that file never claimed to. Say so when
+you hand it over, or the customer diagnoses a bug that isn't one.
 
 Both are schema-verified against the source; the build aborts rather than write
 a file whose schema drifted. Read the report:
@@ -170,6 +182,23 @@ keeps the template's own scope class and the customer's designers end up
 assigning SAP's sample class name to their widgets. The build warns when that
 happens. Whatever you choose, `preview_dashboard.py` must be told the same one.
 
+The two scripts want it written differently: `build_css.py` takes the **selector**
+(`--scope .acmetheme`), `preview_dashboard.py` takes the bare **class name**
+(`--scope acmetheme`). Both now normalise the other form and say so on stderr, so
+a mismatch corrects itself - but read that warning rather than ignoring it, and if
+you are driving these scripts from anything other than the CLI, check the scope
+actually landed. A dotless selector compiles every rule to
+`acmetheme .sap-custom-...`, which matches nothing; a dotted class name produces
+`class="... .acmetheme"`, which is not a class. Either leaves the CSS inert.
+
+**An inert CSS file is nearly invisible on a light theme.** Unstyled text falls
+back to browser-default black, which on a pale canvas passes for the dark text you
+intended - so the preview looks plausible and you ship nothing. Confirm the scope
+took rather than trusting the render: grep the output for `.yourscope ` with the
+leading dot, or compute a colour in the preview and check it against the swatch
+you expect. On a dark theme the same fault is obvious at a glance, which is a good
+argument for rendering the dark variant even when you are shipping the light one.
+
 Pass `--font-fallback` unless there is a reason not to. SAP's sample names a
 single face in most rules, and a face that fails to load drops to the browser
 default, which is usually a serif - conspicuous in a dashboard.
@@ -219,6 +248,14 @@ through swatch references - which is *mostly* true, and whether the cached
 literals win depends on their import script and SAC version. So: scoped file
 first, full file as the fix if widgets still render in stock colours.
 
+**Unless the font is part of the brief.** With `font.apply: true` the ordering
+inverts: the scoped file changes no typography at all (see step 4), so leading
+with it guarantees the exact complaint that usually prompted the font work -
+"I applied the theme and everything still says Default". When the customer came
+to you about the font, lead with the full file and offer the scoped one as the
+conservative fallback. Whichever you lead with, name what the other one does
+differently rather than shipping two files and letting them guess.
+
 Ship the CSS alongside the JSON, and be explicit that **it must be kept in step
 with the theme**. Because CSS outranks the JSON, a swatch change without a CSS
 rebuild leaves the story showing two different brand colours.
@@ -232,6 +269,8 @@ Tell them, briefly:
   surfaces later as "Reset put SAP blue back".
 - Anything you activated or added (a spare swatch, font keys), named as the
   thing to verify on import, with the fallback if their tenant rejects it.
+- That the font is spelled lowercase in the JSON and normal case in the CSS.
+  It looks like an inconsistency until you know why, and someone will "fix" it.
 - What the theme cannot reach - table header fills, text case, logos. Set that
   expectation early; they will ask.
 - Which **scope class** their designers must assign in each widget's styling

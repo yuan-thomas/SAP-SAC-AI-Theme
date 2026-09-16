@@ -15,7 +15,13 @@
     "family": "Inter",
     "fallback": "",
     "apply": true,
+    "lowercaseInJson": true,
     "_note": [
+      "lowercaseInJson writes the family lowercased into the JSON ('inter', not",
+      "'Inter'). The theme dialog stores family names that way and a value pushed",
+      "back in has to match or the font will not resolve. The CSS layer is",
+      "separate and keeps normal case. Leave this true unless a tenant proves",
+      "otherwise.",
       "apply:false leaves typography alone. Only set true once the font is",
       "confirmed registered on the tenant, and check whether weights were",
       "registered as one family or several - 'Inter' with a bold flag behaves",

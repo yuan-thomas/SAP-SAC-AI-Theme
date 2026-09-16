@@ -388,13 +388,20 @@ def _conventions(entry, fallback):
     return {k: (c.most_common(1)[0][0] if c else fallback[k]) for k, c in found.items()}
 
 
-def apply_font(doc, family, sections, fallback_stack=""):
+def apply_font(doc, family, sections, fallback_stack="", lowercase=True):
     """Swap the incumbent family for the brand family, preserving quoting.
 
     SAC writes the same family three different ways in three different key
     names. Rewriting the token in place keeps each slot in the form SAC itself
     produced, which is the form known to work there.
+
+    Casing is the exception, and it matters. The theme dialog stores family
+    names lowercased - a stock export carries both "72-Web" and "72-web" - and
+    a value pushed back in has to match or the font does not resolve. So the
+    family name goes into the JSON lowercased regardless of how it is written
+    elsewhere. The CSS layer is unaffected and uses normal case.
     """
+    family = family.lower() if lowercase else family
     tokens = collections.Counter()
     for _, node in _nodes({s: doc[s] for s in sections}):
         for k in FAM_KEYS:
@@ -419,7 +426,7 @@ def apply_font(doc, family, sections, fallback_stack=""):
     # is swept too, and reported so the change stays visible and reversible.
     strays = collections.Counter()
     generic = {"sans-serif", "serif", "monospace", "arial", "helvetica",
-               "system-ui", family.lower()}
+               "system-ui", family.lower()}          # family is already cased
     for _, node in _nodes({s: doc[s] for s in sections}):
         for k in FAM_KEYS:
             v = node.get(k)
@@ -444,12 +451,14 @@ def _nodes(o, path=""):
             yield from _nodes(v, f"{path}[{i}]")
 
 
-def fill_font_gaps(doc, family, sections, fallback_stack=""):
+def fill_font_gaps(doc, family, sections, fallback_stack="", lowercase=True):
     """Pin every font slot that is empty or has no family key at all.
 
     Both cases fall back to the SAC default at render time, which quietly
     defeats a brand font in exactly the widgets nobody thinks to check.
     """
+    if lowercase:
+        family = family.lower()
     base = family if "," not in family else family
     quoted = {"fontname": f"'{base}'", "fontFamily": base, "family": f'"{base}"'}
     if fallback_stack:
@@ -651,10 +660,16 @@ def main():
     fnt = spec.get("font", {})
     if fnt.get("apply") and fnt.get("family"):
         stack = fnt.get("fallback", "")
-        n_font, incumbent, strays = apply_font(full, fnt["family"], sections, stack)
-        n_fill, n_add = fill_font_gaps(full, fnt["family"], sections, stack)
-        print(f"font {incumbent!r} -> {fnt['family']!r}: {n_font} rewritten, "
+        lower = fnt.get("lowercaseInJson", True)
+        n_font, incumbent, strays = apply_font(full, fnt["family"], sections,
+                                               stack, lower)
+        n_fill, n_add = fill_font_gaps(full, fnt["family"], sections, stack, lower)
+        written = fnt["family"].lower() if lower else fnt["family"]
+        print(f"font {incumbent!r} -> {written!r}: {n_font} rewritten, "
               f"{n_fill} empty filled, {n_add} family keys added")
+        if lower and written != fnt["family"]:
+            print(f"  lowercased for the JSON layer (the theme dialog stores family "
+                  f"names that way; CSS keeps {fnt['family']!r})")
         if strays:
             print(f"  other faces also swept: {dict(strays)}")
 

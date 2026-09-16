@@ -140,7 +140,7 @@ def main():
             "brand": "TODO customer name",
             "notes": "Replace every color below. Roles come from this export.",
             "font": {"family": "", "fallback": "Arial, Helvetica, sans-serif",
-                     "apply": False},
+                     "apply": False, "lowercaseInJson": True},
             "activate": {},
             "headerBar": {},
             "swatches": {s["id"]: {"role": s.get("description", ""),

@@ -47,6 +47,15 @@ def main():
         slug = re.sub(r"[^a-z0-9]", "", a.brand.split()[0].lower()) if a.brand else ""
         a.scope = f"{slug}theme" if slug else "saptheme"
 
+    # build_css.py takes a selector (".acmetheme"); this one writes into a class
+    # attribute, where a leading dot produces class="... .acmetheme" - not a
+    # class at all, so nothing matches and the preview renders unstyled.
+    if a.scope.startswith("."):
+        a.scope = a.scope.lstrip(".")
+        print(f"!! --scope had a leading dot: using {a.scope}\n"
+              "   (this script wants the bare class name; build_css.py wants the\n"
+              "    selector)")
+
     doc = json.load(open(a.theme))
     sw = [s for s in
           doc["theme"]["colors"]["preferences"][0]["settings"]["swatches"]["values"]

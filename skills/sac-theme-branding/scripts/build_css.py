@@ -351,6 +351,18 @@ def main():
             a.scope = f".{slug}theme"
             print(f"scope class derived from --brand: {a.scope}")
 
+    # This script writes a selector, preview_dashboard.py takes a bare class
+    # name, and it is easy to hand one the other's form. A dotless scope here
+    # compiles every rule to "acmetheme .sap-custom-..." - valid CSS that
+    # matches nothing, so the stylesheet is silently inert. On a light theme
+    # that is nearly invisible, because unstyled text falls back to black and
+    # passes for the intended dark type. Normalise rather than fail.
+    if a.scope and not a.scope.startswith("."):
+        a.scope = "." + a.scope
+        print(f"!! --scope had no leading dot: using {a.scope}\n"
+              "   (this script wants a selector; preview_dashboard.py wants the\n"
+              "    bare class name)")
+
     new = json.load(open(a.branded))
     old = json.load(open(a.source_theme))
     css = open(a.template, encoding="utf-8-sig").read()
